@@ -151,7 +151,25 @@ def all_students_tuple_list(filename):
 
     student_list = []
 
-    # Code goes here
+    file = open(filename)
+
+    for line in file:
+        line = line.rstrip()
+        data = line.split('|')
+
+        full_name = (data[0] + " " + data[1])
+        house = data[2]
+        advisor = data[3]
+        cohort = data[4]
+
+        if cohort == "G" or cohort == "I":
+            pass
+
+        else:
+            student_tuple = (full_name, house, advisor, cohort)
+            student_list.append(student_tuple)
+
+    file.close()
 
     return student_list
 
