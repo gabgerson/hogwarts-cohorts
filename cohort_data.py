@@ -58,19 +58,19 @@ def sort_by_cohort(filename):
         data = line.split('|')
 
         if data[4] == "Fall 2015":
-            fall_15.append(str(data[0] + " " + data[1]))
+            fall_15.append(data[0] + " " + data[1])
 
         elif data[4] == "Winter 2016":
-            winter_16.append(str(data[0] + " " + data[1]))
+            winter_16.append(data[0] + " " + data[1])
 
         elif data[4] == "Spring 2016":
-            spring_16.append(str(data[0] + " " + data[1]))
+            spring_16.append(data[0] + " " + data[1])
 
         elif data[4] == "Summer 2016":
-            summer_16.append(str(data[0] + " " + data[1]))
+            summer_16.append(data[0] + " " + data[1])
 
         elif data[4] == "G":
-            ghosts.append(str(data[0] + " " + data[1]))
+            ghosts.append(data[0] + " " + data[1])
 
     file.close()
 
@@ -194,7 +194,11 @@ def find_cohort_by_student_name(student_list):
 
     """
 
-    # Code goes here
+    student_to_search = input("Who are you looking for? ")
+
+    for student_tuple in student_list:
+        if student_tuple[0] == student_to_search:
+            return("{} was in the {} cohort".format(student_tuple[0], student_tuple[3]))
 
     return "Student not found."
 
@@ -256,7 +260,7 @@ def find_house_members_by_student_name(student_list):
 #############################################################################
 # Here is some useful code to run these functions without doctests!
 
-# find_cohort_by_student_name(all_students_data)
+print(find_cohort_by_student_name(all_students_tuple_list("cohort_data.txt")))
 # find_house_members_by_student_name(all_students_data)
 
 
