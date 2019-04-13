@@ -221,7 +221,13 @@ def find_name_duplicates(filename):
 
     duplicate_names = set()
 
-    # Code goes here
+    file = open(filename)
+
+    for line in file:
+        line = line.rstrip()
+        data = line.split('|')
+
+    file.close()
 
     return duplicate_names
 
